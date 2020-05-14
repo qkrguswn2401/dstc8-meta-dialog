@@ -66,7 +66,7 @@ class RetrievalTrainer(Trainer):
         model.eval()
 
         with torch.no_grad():
-          resps, resp_lens = model(*t_inputs)
+          resps, resp_lens = model(*t_inputs)  # gets predcited response in embedded tensor. and length of it.
 
           yield dict(task=task, resps=resps, resp_lens=resp_lens,
                      s_inputs=s_inputs, s_targets=s_targets, s_context=s_context,
